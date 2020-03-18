@@ -5,7 +5,7 @@
     src: local('Lato Regular'), local('Lato-Regular'), url(./fonts/LatoLatin-Regular.woff2) format('woff2');
 }
 
-body {
+#react-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -22,18 +22,18 @@ input,
 .js-search-suggestion,
 input:focus,
 .js-search-suggestion:focus {
-display: block;
-box-sizing: border-box;
-width: 100%;
-margin: 0;
-border: 0;
-outline: 0;
-background: transparent;
-color: var(--foreground);
-font-family: Lato, sans-serif;
-text-align: center;
--webkit-appearance: none;
--moz-appearance: none;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--foreground);
+    font-family: Lato, sans-serif;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 .categories,
@@ -397,7 +397,7 @@ width: 5vw!important;
 }
 
 @media (min-width: 1700px) {
-.categories {
-    grid-template-columns: repeat(5, 250px) 185px;
-}
+    .categories {
+        grid-template-columns: repeat(5, 250px) 185px;
+    }
 }

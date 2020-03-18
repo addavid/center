@@ -25,7 +25,6 @@ class App extends React.Component {
         };
     }
 
-
     render() {
         const { typed } = this.state;
 
@@ -39,5 +38,5 @@ class App extends React.Component {
 
 
 ReactDOM.render(
-    <App />, document.getElementById('main')
+    <App />, document.getElementById('react-container')
 );
