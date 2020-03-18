@@ -1,0 +1,403 @@
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato-Regular'), url(./fonts/LatoLatin-Regular.woff2) format('woff2');
+}
+
+body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    transition: background .2s;
+    font-family: Lato, sans-serif;
+    color: var(--search);
+}
+
+input,
+.js-search-suggestion,
+input:focus,
+.js-search-suggestion:focus {
+display: block;
+box-sizing: border-box;
+width: 100%;
+margin: 0;
+border: 0;
+outline: 0;
+background: transparent;
+color: var(--foreground);
+font-family: Lato, sans-serif;
+text-align: center;
+-webkit-appearance: none;
+-moz-appearance: none;
+}
+
+.categories,
+.category,
+.category ul {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+a,
+a:focus {
+color: inherit;
+outline: 0;
+}
+
+#clock {
+display: block;
+margin-top: -.06em;
+font-size: 6rem;
+letter-spacing: .05em;
+cursor: pointer;
+color: var(--foreground);
+text-align: center;
+}
+
+#am-pm {
+font-size: 2rem;
+margin-left: 0.3rem;
+}
+
+#date {
+display: block;
+font-size: 1.5rem;
+letter-spacing: .05em;
+color: var(--foreground);
+}
+
+#search-context{
+min-height: 1.5em;
+text-align: center;
+display: block;
+width: 100%;
+margin-bottom: 20px;
+font-size: 1.5em;
+font-weight: 900;
+letter-spacing: .05em;
+color: var(--foreground);
+}
+
+#search-form {
+padding: 1em;
+background: var(--search);
+transition: background-color .5s;
+box-sizing: border-box;
+z-index: 2;
+}
+
+#search-form>div {
+width: 100%;
+}
+
+#search-input,
+#search-input:focus {
+width: 100%;
+margin-bottom: 20px;
+font-size: 1.5em;
+font-weight: 900;
+letter-spacing: .05em;
+}
+
+#search-suggestions {
+min-height: 3em;
+flex-wrap: wrap;
+justify-content: center;
+list-style: none;
+}
+
+body.suggestions #search-suggestions {
+display: flex;
+}
+
+.search-suggestion {
+padding: .7em 1em;
+white-space: nowrap;
+font-size: 1.1em;
+cursor: pointer;
+}
+
+.search-suggestion.highlight {
+background-color: var(--foreground);
+color: #222;
+}
+
+.search-suggestion b {
+position: relative;
+font-weight: 400;
+}
+
+.search-suggestion b::after {
+content: ' ';
+position: absolute;
+top: 51%;
+right: 0;
+left: 0;
+height: 3px;
+background-color: var(--foreground);
+opacity: .8;
+}
+
+.search-suggestion.highlight b::after {
+opacity: 0;
+}
+
+#help, #help-history, #help-config, #help-theme, #commands-help, #hub{
+display: flex;
+padding: 8vw;
+background: var(--background);
+font-size: 1.3rem;
+}
+
+#commands-help, #hub{
+z-index: 1;
+}
+
+#help, #help-history, #help-config, #help-theme {
+z-index: 2;
+}
+
+.category {
+margin-bottom: 2rem;
+}
+
+.category:last-of-type {
+margin-bottom: 0;
+}
+
+.category-name {
+margin: 0 0 2rem;
+font-size: .7em;
+letter-spacing: .2em;
+text-transform: uppercase;
+color: var(--foreground);
+}
+
+.command a {
+display: block;
+position: relative;
+margin: 1em 0;
+font-size: .9em;
+line-height: 2em;
+text-decoration: none;
+color: var(--foreground);
+}
+
+.command:last-of-type a {
+margin-bottom: 0;
+}
+
+.command-key {
+display: block;
+float: left;
+width: 2.5em;
+margin-right: 1em;
+border-radius: 50%;
+background-color: var(--foreground);
+color: var(--background);
+font-size: .8em;
+text-align: center;
+}
+
+.command-name {
+position: relative;
+overflow: hidden;
+}
+
+.command-name::after {
+content: ' ';
+position: absolute;
+right: 0;
+bottom: -.35em;
+left: 0;
+height: 2px;
+transition: .2s;
+transform: translateX(-2em);
+background-color: var(--foreground);
+opacity: 0;
+}
+
+.command a:hover .command-name::after,
+.command a:focus .command-name::after {
+transform: translateX(0);
+opacity: 1;
+}
+
+.overlay {
+position: fixed;
+top: 0;
+left: 0;
+overflow: auto;
+box-sizing: border-box;
+width: 100%;
+height: 100%;
+visibility: hidden;
+color: var(--foreground)
+}
+
+body.help #help.overlay,
+body.commands-help #commands-help.overlay,
+body.hub #hub.overlay,
+body.form #search-form.overlay,
+body.history-help-menu #help-history.overlay,
+body.config-help-menu #help-config.overlay,
+body.theme-help-menu #help-theme.overlay {
+visibility: visible;
+}
+
+.center {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100%;
+box-sizing: border-box;
+background: var(--background);
+}
+
+.footnote {
+position: absolute;
+bottom: 0;
+width: 100%;
+z-index: 2;
+display: grid;
+grid-template-columns: repeat(3, 33vw)100vw;
+}
+
+#help-message {
+color: var(--foreground);
+text-align: center; 
+}
+
+#commands-help-message {
+color: var(--foreground);
+text-align: right;
+}
+
+#hub-message {
+color: var(--foreground);
+margin-left: 20px;
+text-align: left;
+}
+
+span p span{
+padding: .7em 1em;
+cursor: pointer;
+white-space: nowrap;
+}
+
+span.highlight p span {
+background-color: var(--foreground);
+color: #222;
+}
+
+.help-content-box {
+color: var(--foreground); 
+}
+
+.help-grid-buttons {
+display: grid;
+grid-template-columns: repeat(3, 33%)100%;
+}
+
+.help-button, #close-history-help-button {
+background: none;
+height: 2.5rem;
+font-size: 1rem;
+color: var(--foreground);
+border: none;
+width: 100%;
+cursor: pointer;
+}
+
+.help-button:hover, #close-history-help-button:hover {
+background-color: var(--foreground);
+color: var(--background);
+}
+
+.hub-version a {
+text-decoration: none;
+font-size: 0.7em;
+}
+
+.help-title a:hover, .hub-version a:hover {
+background-color: var(--foreground);
+color: var(--background);;
+}
+
+#help-menu-table {
+width: 50vw;
+text-align: center;
+border-spacing: 0;
+word-wrap: break-word;
+word-break: break-all;
+table-layout: fixed;
+border-collapse: collapse;
+margin-top: 2rem;
+}
+
+#help-menu-table tbody,
+#help-menu-table thead { display: block; }
+
+#help-menu-table thead {
+border: 1px solid var(--foreground);
+background: var(--foreground);
+color: var(--background);
+}
+
+#help-menu-table thead tr th, #help-menu-table td { 
+width: 25vw;
+padding: 15px;
+}
+
+#help-menu-table tbody {
+max-height: 20vw;
+overflow-y: auto;
+overflow-x: hidden;
+border: 1px solid var(--foreground);
+border-top: none;
+}
+
+.theme-preview-header, .theme-preview-cell {
+width: 5vw!important;
+}
+
+@media (min-width: 500px) {
+.categories {
+    display: grid;
+    grid-template-columns: 250px 185px;
+    justify-content: space-around;
+}
+.category:nth-last-child(2) {
+    margin-bottom: 0;
+}
+#search-input,
+#search-input:focus {
+    font-size: 3em;
+}
+}
+@media (min-width: 1000px) {
+#help, #hub {
+    display: flex;
+    padding: 0;
+}
+.category {
+    margin: 2rem 0;
+}
+.categories {
+    grid-template-columns: repeat(2, 300px) 185px;
+}
+}
+
+@media (min-width: 1700px) {
+.categories {
+    grid-template-columns: repeat(5, 250px) 185px;
+}
+}
