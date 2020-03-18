@@ -31,7 +31,7 @@ class App extends React.Component {
     handleKeyPress(event) {
         if (event.keyCode === 27) {
             this.setState({ loadSearch: false });
-        } else {
+        } else if (event.keyCode !== 13) {
             this.setState({ loadSearch: true });
         }
     }

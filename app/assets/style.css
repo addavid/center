@@ -39,77 +39,77 @@ input:focus,
 .categories,
 .category,
 .category ul {
-margin: 0;
-padding: 0;
-list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 a,
 a:focus {
-color: inherit;
-outline: 0;
+    color: inherit;
+    outline: 0;
 }
 
 #clock {
-display: block;
-margin-top: -.06em;
-font-size: 6rem;
-letter-spacing: .05em;
-cursor: pointer;
-color: var(--foreground);
-text-align: center;
+    display: block;
+    margin-top: -.06em;
+    font-size: 6rem;
+    letter-spacing: .05em;
+    cursor: pointer;
+    color: var(--foreground);
+    text-align: center;
 }
 
 #am-pm {
-font-size: 2rem;
-margin-left: 0.3rem;
+    font-size: 2rem;
+    margin-left: 0.3rem;
 }
 
 #date {
-display: block;
-font-size: 1.5rem;
-letter-spacing: .05em;
-color: var(--foreground);
+    display: block;
+    font-size: 1.5rem;
+    letter-spacing: .05em;
+    color: var(--foreground);
 }
 
 #search-context{
-min-height: 1.5em;
-text-align: center;
-display: block;
-width: 100%;
-margin-bottom: 20px;
-font-size: 1.5em;
-font-weight: 900;
-letter-spacing: .05em;
-color: var(--foreground);
+    min-height: 1.5em;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 900;
+    letter-spacing: .05em;
+    color: var(--foreground);
 }
 
 #search-form {
-padding: 1em;
-background: var(--search);
-transition: background-color .5s;
-box-sizing: border-box;
-z-index: 2;
+    padding: 1em;
+    background: var(--search);
+    transition: background-color .5s;
+    box-sizing: border-box;
+    z-index: 2;
 }
 
 #search-form>div {
-width: 100%;
+    width: 100%;
 }
 
 #search-input,
 #search-input:focus {
-width: 100%;
-margin-bottom: 20px;
-font-size: 1.5em;
-font-weight: 900;
-letter-spacing: .05em;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 900;
+    letter-spacing: .05em;
 }
 
 #search-suggestions {
-min-height: 3em;
-flex-wrap: wrap;
-justify-content: center;
-list-style: none;
+    min-height: 3em;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
 }
 
 body.suggestions #search-suggestions {
@@ -225,20 +225,8 @@ opacity: 0;
 
 .command a:hover .command-name::after,
 .command a:focus .command-name::after {
-transform: translateX(0);
-opacity: 1;
-}
-
-.overlay {
-position: fixed;
-top: 0;
-left: 0;
-overflow: auto;
-box-sizing: border-box;
-width: 100%;
-height: 100%;
-visibility: hidden;
-color: var(--foreground)
+    transform: translateX(0);
+    opacity: 1;
 }
 
 body.help #help.overlay,
@@ -248,18 +236,18 @@ body.form #search-form.overlay,
 body.history-help-menu #help-history.overlay,
 body.config-help-menu #help-config.overlay,
 body.theme-help-menu #help-theme.overlay {
-visibility: visible;
+    visibility: visible;
 }
 
 .center {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-width: 100%;
-height: 100%;
-box-sizing: border-box;
-background: var(--background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background: var(--background);
 }
 
 .footnote {
@@ -353,36 +341,38 @@ color: var(--background);
 }
 
 #help-menu-table thead tr th, #help-menu-table td { 
-width: 25vw;
-padding: 15px;
+    width: 25vw;
+    padding: 15px;
 }
 
 #help-menu-table tbody {
-max-height: 20vw;
-overflow-y: auto;
-overflow-x: hidden;
-border: 1px solid var(--foreground);
-border-top: none;
+    max-height: 20vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid var(--foreground);
+    border-top: none;
 }
 
 .theme-preview-header, .theme-preview-cell {
-width: 5vw!important;
+    width: 5vw!important;
 }
 
 @media (min-width: 500px) {
-.categories {
-    display: grid;
-    grid-template-columns: 250px 185px;
-    justify-content: space-around;
+    .categories {
+        display: grid;
+        grid-template-columns: 250px 185px;
+        justify-content: space-around;
+    }
+    .category:nth-last-child(2) {
+        margin-bottom: 0;
+    }
+
+    #search-input,
+    #search-input:focus {
+        font-size: 3em;
+    }
 }
-.category:nth-last-child(2) {
-    margin-bottom: 0;
-}
-#search-input,
-#search-input:focus {
-    font-size: 3em;
-}
-}
+
 @media (min-width: 1000px) {
 #help, #hub {
     display: flex;

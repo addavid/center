@@ -5,17 +5,21 @@
  */
 import React from 'react';
 
-function SearchForm({ searchFor }) {
+function SearchForm() {
     return (
         <form
-            className='overlay center'
+            className='center'
             id='search-form'
             autoComplete='off'
             spellCheck='false'
         >
             <div>
                 <span id='search-context'></span>
-                <input id='search-input' type='text' />
+                <input 
+                    id='search-input'
+                    type='text'
+                    placeholder='press esc to exit'
+                    autoFocus={true} />
                 <ul id='search-suggestions'></ul>
             </div>
         </form>
