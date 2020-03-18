@@ -23,7 +23,7 @@ export default class Time extends React.Component {
     componentDidMount() {
         this.setState({
             isLoading: false,
-            time: moment().format('LTS'),
+            time: moment().locale('en-il').format('LTS'),
             date: moment().format('L')
         });
         

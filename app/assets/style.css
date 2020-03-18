@@ -164,19 +164,19 @@ z-index: 2;
 }
 
 .category {
-margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 
 .category:last-of-type {
-margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .category-name {
-margin: 0 0 2rem;
-font-size: .7em;
-letter-spacing: .2em;
-text-transform: uppercase;
-color: var(--foreground);
+    margin: 0 0 2rem;
+    font-size: .7em;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--foreground);
 }
 
 .command a {
@@ -194,33 +194,33 @@ margin-bottom: 0;
 }
 
 .command-key {
-display: block;
-float: left;
-width: 2.5em;
-margin-right: 1em;
-border-radius: 50%;
-background-color: var(--foreground);
-color: var(--background);
-font-size: .8em;
-text-align: center;
+    display: block;
+    float: left;
+    width: 2.5em;
+    margin-right: 1em;
+    border-radius: 50%;
+    background-color: var(--foreground);
+    color: var(--background);
+    font-size: .8em;
+    text-align: center;
 }
 
 .command-name {
-position: relative;
-overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 .command-name::after {
-content: ' ';
-position: absolute;
-right: 0;
-bottom: -.35em;
-left: 0;
-height: 2px;
-transition: .2s;
-transform: translateX(-2em);
-background-color: var(--foreground);
-opacity: 0;
+    content: ' ';
+    position: absolute;
+    right: 0;
+    bottom: -.35em;
+    left: 0;
+    height: 2px;
+    transition: .2s;
+    transform: translateX(-2em);
+    background-color: var(--foreground);
+    opacity: 0;
 }
 
 .command a:hover .command-name::after,
@@ -251,93 +251,93 @@ body.theme-help-menu #help-theme.overlay {
 }
 
 .footnote {
-position: absolute;
-bottom: 0;
-width: 100%;
-z-index: 2;
-display: grid;
-grid-template-columns: repeat(3, 33vw)100vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 33vw)100vw;
 }
 
 #help-message {
-color: var(--foreground);
-text-align: center; 
+    color: var(--foreground);
+    text-align: center; 
 }
 
 #commands-help-message {
-color: var(--foreground);
-text-align: right;
+    color: var(--foreground);
+    text-align: right;
 }
 
 #hub-message {
-color: var(--foreground);
-margin-left: 20px;
-text-align: left;
+    color: var(--foreground);
+    margin-left: 20px;
+    text-align: left;
 }
 
 span p span{
-padding: .7em 1em;
-cursor: pointer;
-white-space: nowrap;
+    padding: .7em 1em;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
 span.highlight p span {
-background-color: var(--foreground);
-color: #222;
+    background-color: var(--foreground);
+    color: #222;
 }
 
 .help-content-box {
-color: var(--foreground); 
+    color: var(--foreground); 
 }
 
 .help-grid-buttons {
-display: grid;
-grid-template-columns: repeat(3, 33%)100%;
+    display: grid;
+    grid-template-columns: repeat(3, 33%)100%;
 }
 
 .help-button, #close-history-help-button {
-background: none;
-height: 2.5rem;
-font-size: 1rem;
-color: var(--foreground);
-border: none;
-width: 100%;
-cursor: pointer;
+    background: none;
+    height: 2.5rem;
+    font-size: 1rem;
+    color: var(--foreground);
+    border: none;
+    width: 100%;
+    cursor: pointer;
 }
 
 .help-button:hover, #close-history-help-button:hover {
-background-color: var(--foreground);
-color: var(--background);
+    background-color: var(--foreground);
+    color: var(--background);
 }
 
 .hub-version a {
-text-decoration: none;
-font-size: 0.7em;
+    text-decoration: none;
+    font-size: 0.7em;
 }
 
 .help-title a:hover, .hub-version a:hover {
-background-color: var(--foreground);
-color: var(--background);;
+    background-color: var(--foreground);
+    color: var(--background);;
 }
 
 #help-menu-table {
-width: 50vw;
-text-align: center;
-border-spacing: 0;
-word-wrap: break-word;
-word-break: break-all;
-table-layout: fixed;
-border-collapse: collapse;
-margin-top: 2rem;
+    width: 50vw;
+    text-align: center;
+    border-spacing: 0;
+    word-wrap: break-word;
+    word-break: break-all;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-top: 2rem;
 }
 
 #help-menu-table tbody,
 #help-menu-table thead { display: block; }
 
 #help-menu-table thead {
-border: 1px solid var(--foreground);
-background: var(--foreground);
-color: var(--background);
+    border: 1px solid var(--foreground);
+    background: var(--foreground);
+    color: var(--background);
 }
 
 #help-menu-table thead tr th, #help-menu-table td { 
@@ -374,16 +374,16 @@ color: var(--background);
 }
 
 @media (min-width: 1000px) {
-#help, #hub {
-    display: flex;
-    padding: 0;
-}
-.category {
-    margin: 2rem 0;
-}
-.categories {
-    grid-template-columns: repeat(2, 300px) 185px;
-}
+    #help, #hub {
+        display: flex;
+        padding: 0;
+    }
+    .category {
+        margin: 2rem 0;
+    }
+    .categories {
+        grid-template-columns: repeat(2, 300px) 185px;
+    }
 }
 
 @media (min-width: 1700px) {

@@ -41,6 +41,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
+        document.body.style.backgroundColor = '#f3f3f3';
         document.addEventListener('keydown',(e) => this.handleKeyPress(e));
     }
 
