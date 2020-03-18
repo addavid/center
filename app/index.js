@@ -14,6 +14,7 @@ import './assets/style.css';
  */
 import Search from './components/Search';
 import Time from './components/Time';
+import Help from './components/Help';
 
 
 class App extends React.Component {
@@ -22,7 +23,8 @@ class App extends React.Component {
 
         this.state = {
             typed: false,
-            loadSearch: false
+            loadSearch: false,
+            showHelp: false
         };
 
         this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -30,7 +32,9 @@ class App extends React.Component {
 
     handleKeyPress(event) {
         if (event.keyCode === 27) {
-            this.setState({ loadSearch: false });
+            this.setState({ loadSearch: false, showHelp: false });
+        } else if (event.key === '?') {
+            this.setState({ showHelp: true });
         } else if (event.keyCode !== 13) {
             this.setState({ loadSearch: true });
         }
@@ -45,14 +49,33 @@ class App extends React.Component {
     }
 
     render() {
-        const { loadSearch } = this.state;
+        const { loadSearch, showHelp } = this.state;
 
         return (
             <React.Fragment>
                 {!loadSearch
-                    ? <Time />
-                    : <Search />
+                    ? !showHelp && <Time />
+                    : !showHelp && <Search />
                 }
+                {showHelp && <Help />}
+
+                <footer className="footnote">
+                    <span className="footnote-message" id="hub-message">
+                        <p>
+                            <span>/adi davidovich, 2020/</span>
+                        </p>
+                    </span>
+                    <span className="footnote-message" id="help-message">
+                        <p>
+                            <span></span>
+                        </p>
+                        </span>
+                    <span className="footnote-message" id="commands-help-message">
+                        <p>
+                            <span>Press '?' for commands help</span>
+                        </p>
+                    </span>
+                </footer>
             </React.Fragment>
         );
     }
