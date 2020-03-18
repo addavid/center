@@ -21,16 +21,38 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            typed: false
+            typed: false,
+            loadSearch: false
         };
+
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+    }
+
+    handleKeyPress(event) {
+        if (event.keyCode === 27) {
+            this.setState({ loadSearch: false });
+        } else {
+            this.setState({ loadSearch: true });
+        }
+    }
+
+    componentDidMount() {
+        document.addEventListener('keydown',(e) => this.handleKeyPress(e));
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('keydown',(e) => this.handleKeyPress(e));
     }
 
     render() {
-        const { typed } = this.state;
+        const { loadSearch } = this.state;
 
         return (
             <React.Fragment>
-                {!typed ? <Time /> : <Search />}
+                {!loadSearch
+                    ? <Time />
+                    : <Search />
+                }
             </React.Fragment>
         );
     }

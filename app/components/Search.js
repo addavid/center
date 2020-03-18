@@ -5,7 +5,7 @@
  */
 import React from 'react';
 
-function SearchForm() {
+function SearchForm({ searchFor }) {
     return (
         <form
             className='overlay center'
@@ -23,6 +23,10 @@ function SearchForm() {
 }
 
 export default class Search extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <React.Fragment>

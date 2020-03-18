@@ -13,16 +13,21 @@ export default class Time extends React.Component {
 
         this.state = {
             isLoading: true,
-            time: moment().format('LTS'),
-            date: moment().format('L')
+            time: null,
+            date: null
         };
 
         this.updateDateTime = this.updateDateTime.bind(this);
     }
 
     componentDidMount() {
-        this.setState({ isLoading: false });
-        this.interval = setInterval(this.updateDateTime, 1000);
+        this.setState({
+            isLoading: false,
+            time: moment().format('LTS'),
+            date: moment().format('L')
+        });
+        
+        this.interval = setInterval(this.updateDateTime, 100);
     }
 
     updateDateTime() {
@@ -32,6 +37,10 @@ export default class Time extends React.Component {
         });
     }
 
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
     render() {
         const { isLoading, time, date } = this.state;
 
@@ -39,13 +48,13 @@ export default class Time extends React.Component {
             <div className='center'>
                 <time id='clock'>
                     {isLoading
-                        ? <span>Loading Time..</span>
+                        ? <span>Loading Time...</span>
                         : time
                     }
                 </time>
                 <time id='date'>
                     {isLoading
-                        ? <span>Loading Date..</span>
+                        ? <span>Loading Date...</span>
                         : date
                     }
                 </time>
