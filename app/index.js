@@ -1,7 +1,7 @@
 /**
  * MAIN APPLICATION FILE
  * @author Adi Davidovich
- * LAST CHANGE: 18/03/2020
+ * LAST CHANGE: 19/03/2020
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -33,7 +33,7 @@ class App extends React.Component {
     handleKeyPress(event) {
         if (event.keyCode === 27) {
             this.setState({ loadSearch: false, showHelp: false });
-        } else if (event.key === '?') {
+        } else if (event.key === '?' && !this.state.loadSearch) {
             this.setState({ showHelp: true });
         } else if (event.keyCode !== 13) {
             this.setState({ loadSearch: true });
@@ -63,7 +63,7 @@ class App extends React.Component {
                 <footer className="footnote">
                     <span className="footnote-message" id="hub-message">
                         <p>
-                            <span>/adi davidovich, 2020/</span>
+                            <span>/center, 1.0.0/</span>
                         </p>
                     </span>
                     <span className="footnote-message" id="help-message">

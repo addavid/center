@@ -1,7 +1,7 @@
 /**
  * SEARCH COMPONENT
  * @author Adi Davidovich
- * LAST CHANGE: 18/03/2020
+ * LAST CHANGE: 19/03/2020
  */
 import React from 'react';
 import commands from '../config/commands';
@@ -17,21 +17,39 @@ class SearchForm extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.findCommand = this.findCommand.bind(this);
+        this.checkCommand = this.checkCommand.bind(this);
     }
 
     handleChange(e) {
+        event.preventDefault();
         this.setState({ currentInput: e.target.value });
     }
 
-    handleSubmit() {
-        return (
-            <span>
-                submitted
-            </span>
-        );
-    }
+    handleSubmit(event) {
+        event.preventDefault();
 
-    checkCommand(ci) {
+        const searchKeyword = event.target[0].value;
+        const checkForCommand = this.findCommand(searchKeyword);
+
+        // Checking if a command char was found
+        if (checkForCommand) {
+            window.location.href = `${checkForCommand.website}${checkForCommand.searchQuery}${searchKeyword.substr(2)}`;
+        } else if (searchKeyword.match(/.*\..*/) && searchKeyword.match(/^\S+$/)) {
+            if (searchKeyword.match(/^https?:\/\//)) {
+                window.location.href = searchKeyword;
+            } else {
+                window.location.href = `https://${searchKeyword}`;
+            }
+            
+        } else {
+            // Otherwise it searches the query in the default search engine
+            const se = commands.defaultSearchEngine;
+            window.location.href = `${se.website}${se.searchQuery}${searchKeyword}`;
+        }
+    }
+    
+    findCommand(ci) {
         const commandKeys = Object.keys(commands);
         var returnObj = undefined;
 
@@ -45,18 +63,33 @@ class SearchForm extends React.Component {
         });
 
         if (returnObj) {
+            return returnObj;
+        }
+
+        return false;
+    }
+
+    checkCommand(ci) {
+        const returnObj = this.findCommand(ci);
+
+        if (returnObj) {
             document.body.style.backgroundColor = `${returnObj.color}`;
 
             return (
                 <span id='search-context'>
-                    Discover at: {returnObj.name}
+                    Discover at {returnObj.name}
                 </span>
             );
-        } else {
-            document.body.style.backgroundColor = '#f3f3f3';
+        } else if (((ci.match(/.*\..*/) || ci.match(/^https?:\/\//)) && ci.match(/^\S+$/)))  {
+            return null;
         }
-
-        return null;
+        
+        document.body.style.backgroundColor = '#f3f3f3';
+        return (
+            <span id='search-context'>
+                Searching at {commands.defaultSearchEngine.name}
+            </span>
+        );
     }
 
     componentWillUnmount() {
@@ -64,7 +97,7 @@ class SearchForm extends React.Component {
     }
 
     render() {
-        const { currentInput } = this.state;
+        const { currentInput, redirect } = this.state;
 
         return (
             <form
@@ -72,12 +105,13 @@ class SearchForm extends React.Component {
                 id='search-form'
                 autoComplete='off'
                 spellCheck='false'
-                onSubmit={() => this.handleSubmit}
+                onSubmit={this.handleSubmit}
             >
                 <div>
                     {currentInput && this.checkCommand(currentInput)}
                     <input 
                         id='search-input'
+                        name='searchbar'
                         type='text'
                         placeholder='press esc to exit'
                         onChange={(event) => this.handleChange(event)}
@@ -89,16 +123,10 @@ class SearchForm extends React.Component {
     }
 }
 
-export default class Search extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <React.Fragment>
-                <SearchForm />
-            </React.Fragment>
-        );
-    }
+export default function Search() {
+    return (
+        <React.Fragment>
+            <SearchForm />
+        </React.Fragment>
+    );
 }
