@@ -9,3 +9,5 @@ Usage
 ```
 git clone https://github.com/addavid/center.git
 ```
+2. Add your favorite websites to `app/config/commands.js`.
+3. Build using `npm build`.
