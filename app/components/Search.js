@@ -73,31 +73,32 @@ class SearchForm extends React.Component {
         const returnObj = this.findCommand(ci);
 
         if (returnObj) {
-            document.body.style.backgroundColor = `${returnObj.color}`;
+            document.body.style.backgroundImage = `${returnObj.color}`;
 
             return (
                 <span id='search-context'>
-                    Discover at {returnObj.name}
+                    Discover at <span id='search-name'>{returnObj.name}</span>
                 </span>
             );
         } else if (((ci.match(/.*\..*/) || ci.match(/^https?:\/\//)) && ci.match(/^\S+$/)))  {
+            document.body.style.backgroundImage = null;
             return (
                 <span id='search-context'>
-                    Navigating to {ci}
+                    Navigating to <span id='search-name'>{ci}</span>
                 </span>
             );
         }
         
-        document.body.style.backgroundColor = '#f3f3f3';
+        document.body.style.backgroundImage = commands.defaultSearchEngine.color;
         return (
             <span id='search-context'>
-                Searching at {commands.defaultSearchEngine.name}
+                Searching at <span id='search-name'>{commands.defaultSearchEngine.name}</span>
             </span>
         );
     }
 
     componentWillUnmount() {
-        document.body.style.backgroundColor = '#f3f3f3';
+        document.body.style.backgroundImage = null;
     }
 
     render() {

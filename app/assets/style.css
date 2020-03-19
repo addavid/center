@@ -391,3 +391,8 @@ span.highlight p span {
         grid-template-columns: repeat(5, 250px) 185px;
     }
 }
+
+
+#search-name {
+    text-decoration: underline;
+}
