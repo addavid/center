@@ -81,7 +81,11 @@ class SearchForm extends React.Component {
                 </span>
             );
         } else if (((ci.match(/.*\..*/) || ci.match(/^https?:\/\//)) && ci.match(/^\S+$/)))  {
-            return null;
+            return (
+                <span id='search-context'>
+                    Navigating to {ci}
+                </span>
+            );
         }
         
         document.body.style.backgroundColor = '#f3f3f3';
