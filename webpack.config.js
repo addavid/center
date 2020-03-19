@@ -17,7 +17,8 @@ module.exports = {
     module: {
         rules: [
             { test: /\.js$/, loader: 'babel-loader' },
-            { test: /\.css$/, loader: ['style-loader', 'css-loader'] }
+            { test: /\.css$/, loader: ['style-loader', 'css-loader'] },
+            { test: /\.woff2$/, loader: 'file-loader' }
         ]
     },
     plugins: [
