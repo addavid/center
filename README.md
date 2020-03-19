@@ -1,5 +1,4 @@
 Center
 ======
-
-Center is a simple, yet efficient startpage for poweruser to use.\
-The project is a fork of @vkhitrin/hub (based on tilde).
+Center is a simple, yet efficient React startpage for daily use.\
+The project is based on of (vkhitrin's)[(https://github.com/vkhitrin)] (hub)[https://github.com/vkhitrin/hub/] (a modified fork of [tilde](https://github.com/cadejscroggins/tilde)).

@@ -5,6 +5,10 @@
     src: local('Lato Regular'), local('Lato-Regular'), url(./fonts/LatoLatin-Regular.woff2) format('woff2');
 }
 
+body {
+    background-color: #f3f3f3;
+}
+
 #react-container {
     position: absolute;
     top: 0;
@@ -199,8 +203,6 @@ margin-bottom: 0;
     width: 2.5em;
     margin-right: 1em;
     border-radius: 50%;
-    background-color: var(--foreground);
-    color: var(--background);
     font-size: .8em;
     text-align: center;
 }
@@ -391,7 +393,6 @@ span.highlight p span {
         grid-template-columns: repeat(5, 250px) 185px;
     }
 }
-
 
 #search-name {
     text-decoration: underline;

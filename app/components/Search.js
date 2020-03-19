@@ -4,7 +4,7 @@
  * LAST CHANGE: 19/03/2020
  */
 import React from 'react';
-import commands from '../config/commands';
+import config from '../config/commands';
 
 
 class SearchForm extends React.Component {
@@ -12,7 +12,8 @@ class SearchForm extends React.Component {
         super(props);
 
         this.state = {
-            currentInput: undefined
+            currentInput: undefined,
+            defaultSearch: undefined
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -29,12 +30,19 @@ class SearchForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        const searchKeyword = event.target[0].value;
+        var searchKeyword = event.target[0].value;
         const checkForCommand = this.findCommand(searchKeyword);
 
         // Checking if a command char was found
         if (checkForCommand) {
-            window.location.href = `${checkForCommand.website}${checkForCommand.searchQuery}${searchKeyword.substr(2)}`;
+            searchKeyword = searchKeyword.substr(2);
+
+            if (searchKeyword !== '') {
+                window.location.href = `${checkForCommand.website}${checkForCommand.searchQuery}${searchKeyword}`;
+            } else {
+                window.location.href = `${checkForCommand.website}`;
+            }
+            
         } else if (searchKeyword.match(/.*\..*/) && searchKeyword.match(/^\S+$/)) {
             if (searchKeyword.match(/^https?:\/\//)) {
                 window.location.href = searchKeyword;
@@ -44,20 +52,21 @@ class SearchForm extends React.Component {
             
         } else {
             // Otherwise it searches the query in the default search engine
-            const se = commands.defaultSearchEngine;
+            const defaultSe = config.defaultSe;
+            const se = config.commands[defaultSe];
             window.location.href = `${se.website}${se.searchQuery}${searchKeyword}`;
         }
     }
     
     findCommand(ci) {
-        const commandKeys = Object.keys(commands);
+        const commandKeys = Object.keys(config.commands);
         var returnObj = undefined;
 
         commandKeys.map((key) => {
             let re = new RegExp(`^(${key}/)`);
 
             if (ci.match(re)) {
-                returnObj = commands[key];
+                returnObj = config.commands[key];
                 return true;
             }
         });
@@ -89,10 +98,13 @@ class SearchForm extends React.Component {
             );
         }
         
-        document.body.style.backgroundImage = commands.defaultSearchEngine.color;
+        const defaultSe = config.defaultSe;
+        const se = config.commands[defaultSe];
+
+        document.body.style.backgroundImage = se.color;
         return (
             <span id='search-context'>
-                Searching at <span id='search-name'>{commands.defaultSearchEngine.name}</span>
+                Searching at <span id='search-name'>{se.name}</span>
             </span>
         );
     }
@@ -102,7 +114,7 @@ class SearchForm extends React.Component {
     }
 
     render() {
-        const { currentInput, redirect } = this.state;
+        const { currentInput } = this.state;
 
         return (
             <form
@@ -119,9 +131,8 @@ class SearchForm extends React.Component {
                         name='searchbar'
                         type='text'
                         placeholder='press esc to exit'
-                        onChange={(event) => this.handleChange(event)}
+                        onChange={this.handleChange}
                         autoFocus={true} />
-                    <ul id='search-suggestions'></ul>
                 </div>
             </form>
         );
