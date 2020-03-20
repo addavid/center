@@ -4,7 +4,7 @@
  * LAST CHANGE: 18/03/2020
  */
 import React from 'react';
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 
 export default class Time extends React.Component {
@@ -23,8 +23,8 @@ export default class Time extends React.Component {
     componentDidMount() {
         this.setState({
             isLoading: false,
-            time: moment(new Date()).locale('en-il').format('LTS'),
-            date: moment(new Date()).locale('en-il').format('L')
+            time: moment.tz(new Date(), 'Asia/Jerusalem').locale('en-il').format('LTS'),
+            date: moment.tz(new Date(), 'Asia/Jerusalem').format('L')
         });
         
         this.interval = setInterval(this.updateDateTime, 100);
@@ -32,8 +32,8 @@ export default class Time extends React.Component {
 
     updateDateTime() {
         this.setState({
-            date: moment(new Date()).locale('en-il').format('L'),
-            time: moment(new Date()).locale('en-il').format('LTS')
+            date: moment.tz(new Date(), 'Asia/Jerusalem').format('L'),
+            time: moment.tz(new Date(), 'Asia/Jerusalem').locale('en-il').format('LTS')
         });
     }
 

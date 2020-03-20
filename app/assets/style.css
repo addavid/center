@@ -184,17 +184,16 @@ z-index: 2;
 }
 
 .command a {
-display: block;
-position: relative;
-margin: 1em 0;
-font-size: .9em;
-line-height: 2em;
-text-decoration: none;
-color: var(--foreground);
+    display: block;
+    position: relative;
+    margin: 1em 0;
+    font-size: .9em;
+    line-height: 2em;
+    text-decoration: none;
 }
 
 .command:last-of-type a {
-margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .command-key {

@@ -126,7 +126,7 @@ class SearchForm extends React.Component {
             >
                 <div>
                     {currentInput && this.checkCommand(currentInput)}
-                    <input 
+                    <input
                         id='search-input'
                         name='searchbar'
                         type='text'
