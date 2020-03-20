@@ -53,7 +53,7 @@ export default class Help extends React.Component {
                             <ul>
                                 {filteredCommands[c].keys.map(k => (
                                     <li key={k} className='command'>
-                                        <a href='https://www.github.com'>
+                                        <a href={config.commands[k].website}>
                                             <span
                                                 className='command-key'
                                                 style={{backgroundImage: config.commands[k].color}}
