@@ -1,7 +1,7 @@
 /**
  * MAIN APPLICATION FILE
  * @author Adi Davidovich
- * LAST CHANGE: 19/03/2020
+ * LAST CHANGE: 21/03/2020
  */
 import React from 'react';
 import ReactDOM from 'react-dom';

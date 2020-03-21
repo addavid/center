@@ -1,7 +1,7 @@
 /**
  * HELP COMPONENT
  * @author Adi Davidovich
- * LAST CHANGE: 19/03/2020
+ * LAST CHANGE: 20/03/2020
  */
 import React from 'react';
 import config from '../config/commands';

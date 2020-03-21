@@ -1,7 +1,7 @@
 /**
  * TIME COMPONENT
  * @author Adi Davidovich
- * LAST CHANGE: 18/03/2020
+ * LAST CHANGE: 21/03/2020
  */
 import React from 'react';
 import moment from 'moment-timezone';
