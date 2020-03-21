@@ -22,4 +22,4 @@ Usage
 
 TODO
 ----
-None at the moment.
+1. Add a dark mode feature that'll toggle using time (day/night).
