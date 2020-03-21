@@ -4,12 +4,12 @@
  */
 const config = {
     commands: {
-        g: {
-            category: 'Development',
-            name: 'Github',
-            website: 'https://www.github.com',
-            searchQuery: '/search?q=',
-            color: 'linear-gradient(135deg, rgb(156, 180, 67), rgb(128, 180, 67))'
+        g: { // Command-key that will be used to access the site
+            category: 'Development', // Category name will appear in the help section
+            name: 'Github', // The name of the website
+            website: 'https://www.github.com', // URL of the website (without search string)
+            searchQuery: '/search?q=', // The search query that will be used in order to search the site
+            color: 'linear-gradient(135deg, rgb(156, 180, 67), rgb(128, 180, 67))' // The background color will be changed to this
         },
         r: {
             category: 'Social',
@@ -66,6 +66,13 @@ const config = {
             website: 'https://en.wikipedia.org',
             searchQuery: '/wiki/',
             color: 'linear-gradient(135deg, rgba(121,121,116,0.7581233176864496) 35%, rgba(213,218,218,1) 100%)'
+        },
+        l: {
+            category: 'Media & Content',
+            name: 'Genius',
+            website: 'https://genius.com/',
+            searchQuery: '/search?q=',
+            color: 'linear-gradient(to right, rgb(241, 231, 103) 0%, rgb(254, 182, 69) 100%)'
         }
     },
     defaultSe: 'd'
