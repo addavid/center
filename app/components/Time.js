@@ -24,7 +24,7 @@ export default class Time extends React.Component {
         this.setState({
             isLoading: false,
             time: moment.tz(new Date(), 'Asia/Jerusalem').locale('en-il').format('LTS'),
-            date: moment.tz(new Date(), 'Asia/Jerusalem').format('L')
+            date: moment.tz(new Date(), 'Asia/Jerusalem').locale('en-il').format('L')
         });
         
         this.interval = setInterval(this.updateDateTime, 100);
@@ -32,7 +32,7 @@ export default class Time extends React.Component {
 
     updateDateTime() {
         this.setState({
-            date: moment.tz(new Date(), 'Asia/Jerusalem').format('L'),
+            date: moment.tz(new Date(), 'Asia/Jerusalem').locale('en-il').format('L'),
             time: moment.tz(new Date(), 'Asia/Jerusalem').locale('en-il').format('LTS')
         });
     }
