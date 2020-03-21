@@ -22,7 +22,6 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            typed: false,
             loadSearch: false,
             showHelp: false
         };
