@@ -4,7 +4,7 @@ Center is a simple  React startpage for daily use.\
 The project is based on [vkhitrin\'s](https://github.com/vkhitrin) [hub](https://github.com/vkhitrin/hub/) (a modified fork of [tilde](https://github.com/cadejscroggins/tilde)).
 
 
-Requirements for build
+Requirements for Build
 ----------------------
 You should have NodeJS (10+) installed.\
 When testing your changes, you could use `npm start` in order to lauch a basic webserver for development purposes,\
