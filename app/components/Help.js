@@ -1,7 +1,7 @@
 /**
  * HELP COMPONENT
  * @author Adi Davidovich
- * LAST CHANGE: 20/03/2020
+ * LAST CHANGE: 25/03/2020
  */
 import React from 'react';
 import config from '../config/commands';
@@ -29,10 +29,8 @@ export default class Help extends React.Component {
 
                 filteredCommands[category] = {};
                 filteredCommands[category]['keys'] = [p];
-                filteredCommands[category]['names'] = [p.name];
             } else {
                 filteredCommands[category]['keys'].push(p);
-                filteredCommands[category]['names'].push(p.name);
             }
         }
 
