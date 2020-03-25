@@ -1,13 +1,13 @@
 /**
  * SEARCH COMPONENT
  * @author Adi Davidovich
- * LAST CHANGE: 21/03/2020
+ * LAST CHANGE: 25/03/2020
  */
 import React from 'react';
 import config from '../config/commands';
 
 
-class SearchForm extends React.Component {
+export default class Search extends React.Component {
     constructor(props) {
         super(props);
 
@@ -20,6 +20,7 @@ class SearchForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.findCommand = this.findCommand.bind(this);
         this.checkCommand = this.checkCommand.bind(this);
+        this.shouldSearch = this.shouldSearch.bind(this);
     }
 
     handleChange(e) {
@@ -48,7 +49,7 @@ class SearchForm extends React.Component {
             } else {
                 window.location.href = `${checkForCommand.website}`;
             }
-        } else if ((searchKeyword.match(/.*\..*/) && searchKeyword.match(/^\S+$/)) || searchKeyword.match(/^https?:\/\//)) {
+        } else if (this.shouldSearch(searchKeyword)) {
             if (searchKeyword.match(/^https?:\/\//)) {
                 window.location.href = searchKeyword;
             } else {
@@ -97,12 +98,13 @@ class SearchForm extends React.Component {
             } else if (action === '/') {
                 action = 'Navigating to';
             }
+            
             return (
                 <span id='search-context'>
                     {action} <span id='search-name'>{returnObj.name}</span>
                 </span>
             );
-        } else if (((ci.match(/.*\..*/) || ci.match(/^https?:\/\//)) && ci.match(/^\S+$/)))  {
+        } else if (this.shouldSearch(ci))  {
             document.body.style.backgroundImage = null;
             return (
                 <span id='search-context'>
@@ -120,6 +122,11 @@ class SearchForm extends React.Component {
                 Searching at <span id='search-name'>{se.name}</span>
             </span>
         );
+    }
+
+
+    shouldSearch(input) {
+        return (input.match(/.*\..*/) || input.match(/^https?:\/\//) || input.match(/:/)) && input.match(/^\S+$/)
     }
 
     componentWillUnmount() {
@@ -152,10 +159,4 @@ class SearchForm extends React.Component {
     }
 }
 
-export default function Search() {
-    return (
-        <React.Fragment>
-            <SearchForm />
-        </React.Fragment>
-    );
-}
+
