@@ -124,9 +124,8 @@ export default class Search extends React.Component {
         );
     }
 
-
     shouldSearch(input) {
-        return (input.match(/.*\..*/) || input.match(/^https?:\/\//) || input.match(/:/)) && input.match(/^\S+$/)
+        return (input.match(/.*\..*/) || input.match(/^https?:\/\//) || input.match(/:/)) && input.match(/^\S+$/);
     }
 
     componentWillUnmount() {
@@ -158,5 +157,3 @@ export default class Search extends React.Component {
         );
     }
 }
-
-
