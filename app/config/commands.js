@@ -26,14 +26,14 @@ const config = {
             color: 'linear-gradient(135deg, rgb(205, 32, 31), rgb(205, 76, 31))'
         },
         s: {
-            category: 'Search Engine',
+            category: 'Search Engines & Translators',
             name: 'Google',
             website: 'https://encrypted.google.com',
             searchQuery: '/search?q=',
             color: 'linear-gradient(135deg, #da552f, #da802f)'
         },
         d: {
-            category: 'Search Engine',
+            category: 'Search Engines & Translators',
             name: 'DuckDuckGo',
             website: 'https://www.duckduckgo.com',
             searchQuery: '/?q=',
@@ -80,6 +80,13 @@ const config = {
             website: 'https://www.imdb.com',
             searchQuery: '/find?q=',
             color: 'linear-gradient(0deg, rgba(0,0,0,0.783333401720063) 0%, rgba(196,196,30,0.8393558106836485) 0%)'
+        },
+        t: {
+            category: 'Search Engines & Translators',
+            name: 'Google Translate',
+            website: 'https://translate.google.com',
+            searchQuery: '/#view=home&op=translate&sl=auto&tl=iw&text=',
+            color: 'linear-gradient(0deg, rgba(0,0,0,0.783333401720063) 0%, rgba(30,135,196,0.8393558106836485) 0%)'
         }
     },
     defaultSe: 'd'
