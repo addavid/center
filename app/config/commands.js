@@ -70,14 +70,14 @@ const config = {
         l: {
             category: 'Media & Content',
             name: 'Genius',
-            website: 'https://genius.com/',
+            website: 'https://genius.com',
             searchQuery: '/search?q=',
             color: 'linear-gradient(to right, rgb(241, 231, 103) 0%, rgb(254, 182, 69) 100%)'
         },
         i: {
             category: 'Media & Content',
             name: 'iMDb',
-            website: 'https://www.imdb.com/',
+            website: 'https://www.imdb.com',
             searchQuery: '/find?q=',
             color: 'linear-gradient(0deg, rgba(0,0,0,0.783333401720063) 0%, rgba(196,196,30,0.8393558106836485) 0%)'
         }
