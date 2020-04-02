@@ -1,7 +1,7 @@
 /**
  * HELP COMPONENT
  * @author Adi Davidovich
- * LAST CHANGE: 25/03/2020
+ * LAST CHANGE: 02/04/2020
  */
 import React from 'react';
 import config from '../config/commands';
@@ -42,7 +42,7 @@ export default class Help extends React.Component {
         const { categories, filteredCommands } = this.state;
         
         return (
-            <aside className='center' id='commands-help'>
+            <aside className='overlay center' id='commands-help'>
                 <ul className='categories'>
                     {Object.values(categories).map(c => (
                         <li key={c} className='category'>

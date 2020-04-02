@@ -9,6 +9,15 @@ body {
     background-color: #f3f3f3;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+}
+
 #react-container {
     position: absolute;
     top: 0;
@@ -19,7 +28,6 @@ body {
     padding: 0;
     transition: background .2s;
     font-family: Lato, sans-serif;
-    color: var(--search);
 }
 
 input,
@@ -33,7 +41,6 @@ input:focus,
     border: 0;
     outline: 0;
     background: transparent;
-    color: var(--foreground);
     font-family: Lato, sans-serif;
     text-align: center;
     -webkit-appearance: none;
@@ -60,13 +67,7 @@ a:focus {
     font-size: 6rem;
     letter-spacing: .05em;
     cursor: pointer;
-    color: var(--foreground);
     text-align: center;
-}
-
-#am-pm {
-    font-size: 2rem;
-    margin-left: 0.3rem;
 }
 
 #date {
@@ -85,12 +86,10 @@ a:focus {
     font-size: 1.5em;
     font-weight: 900;
     letter-spacing: .05em;
-    color: var(--foreground);
 }
 
 #search-form {
     padding: 1em;
-    background: var(--search);
     transition: background-color .5s;
     box-sizing: border-box;
     z-index: 2;
@@ -117,54 +116,51 @@ a:focus {
 }
 
 body.suggestions #search-suggestions {
-display: flex;
+    display: flex;
 }
 
 .search-suggestion {
-padding: .7em 1em;
-white-space: nowrap;
-font-size: 1.1em;
-cursor: pointer;
+    padding: .7em 1em;
+    white-space: nowrap;
+    font-size: 1.1em;
+    cursor: pointer;
 }
 
 .search-suggestion.highlight {
-background-color: var(--foreground);
-color: #222;
+    color: #222;
 }
 
 .search-suggestion b {
-position: relative;
-font-weight: 400;
+    position: relative;
+    font-weight: 400;
 }
 
 .search-suggestion b::after {
-content: ' ';
-position: absolute;
-top: 51%;
-right: 0;
-left: 0;
-height: 3px;
-background-color: var(--foreground);
-opacity: .8;
+    content: ' ';
+    position: absolute;
+    top: 51%;
+    right: 0;
+    left: 0;
+    height: 3px;
+    opacity: .8;
 }
 
 .search-suggestion.highlight b::after {
-opacity: 0;
+    opacity: 0;
 }
 
 #help, #help-history, #help-config, #help-theme, #commands-help, #hub{
-display: flex;
-padding: 8vw;
-background: var(--background);
-font-size: 1.3rem;
+    display: flex;
+    padding: 8vw;
+    font-size: 1.3rem;
 }
 
 #commands-help, #hub{
-z-index: 1;
+    z-index: 1;
 }
 
 #help, #help-history, #help-config, #help-theme {
-z-index: 2;
+    z-index: 2;
 }
 
 .category {
@@ -179,8 +175,7 @@ z-index: 2;
     margin: 0 0 2rem;
     font-size: .7em;
     letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--foreground);
+    text-transform: uppercase
 }
 
 .command a {
@@ -220,7 +215,6 @@ z-index: 2;
     height: 2px;
     transition: .2s;
     transform: translateX(-2em);
-    background-color: var(--foreground);
     opacity: 0;
 }
 
@@ -248,7 +242,6 @@ body.theme-help-menu #help-theme.overlay {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    background: var(--background);
 }
 
 .footnote {
@@ -283,7 +276,6 @@ span p span{
 }
 
 span.highlight p span {
-    background-color: var(--foreground);
     color: #222;
 }
 
@@ -304,11 +296,6 @@ span.highlight p span {
     border: none;
     width: 100%;
     cursor: pointer;
-}
-
-.help-button:hover, #close-history-help-button:hover {
-    background-color: var(--foreground);
-    color: var(--background);
 }
 
 .hub-version a {
@@ -350,7 +337,7 @@ span.highlight p span {
     max-height: 20vw;
     overflow-y: auto;
     overflow-x: hidden;
-    border: 1px solid var(--foreground);
+    border: 1px solid;
     border-top: none;
 }
 
@@ -389,7 +376,7 @@ span.highlight p span {
 
 @media (min-width: 1700px) {
     .categories {
-        grid-template-columns: repeat(5, 250px) 185px;
+        grid-template-columns: repeat(5, 220px) 175px;
     }
 }
 

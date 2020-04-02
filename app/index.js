@@ -1,7 +1,7 @@
 /**
  * MAIN APPLICATION FILE
  * @author Adi Davidovich
- * LAST CHANGE: 21/03/2020
+ * LAST CHANGE: 02/04/2020
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -35,7 +35,7 @@ class App extends React.Component {
         } else if (event.key === '?' && !this.state.loadSearch) {
             this.setState({ showHelp: true });
         } else if (event.keyCode !== 13) {
-            this.setState({ loadSearch: true });
+            this.setState({ loadSearch: true, showHelp: false });
         }
     }
 
