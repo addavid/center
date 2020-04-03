@@ -1,9 +1,10 @@
 /**
  * SEARCH COMPONENT
  * @author Adi Davidovich
- * LAST CHANGE: 25/03/2020
+ * LAST CHANGE: 03/04/2020
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import config from '../config/commands';
 
 
@@ -12,8 +13,7 @@ export default class Search extends React.Component {
         super(props);
 
         this.state = {
-            currentInput: undefined,
-            defaultSearch: undefined
+            currentInput: undefined
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -25,6 +25,11 @@ export default class Search extends React.Component {
 
     handleChange(e) {
         event.preventDefault();
+
+        if (e.target.value === '') {
+            return this.props.searchUnmount();
+        }
+        
         this.setState({ currentInput: e.target.value });
     }
 
@@ -149,7 +154,6 @@ export default class Search extends React.Component {
                         id='search-input'
                         name='searchbar'
                         type='text'
-                        placeholder='press esc to exit'
                         onChange={this.handleChange}
                         autoFocus={true} />
                 </div>
@@ -157,3 +161,6 @@ export default class Search extends React.Component {
         );
     }
 }
+Search.PropTypes = {
+    searchUnmount: PropTypes.func.isRequired
+};

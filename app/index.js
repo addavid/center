@@ -1,7 +1,7 @@
 /**
  * MAIN APPLICATION FILE
  * @author Adi Davidovich
- * LAST CHANGE: 02/04/2020
+ * LAST CHANGE: 03/04/2020
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -27,6 +27,7 @@ class App extends React.Component {
         };
 
         this.handleKeyPress = this.handleKeyPress.bind(this);
+        this.handleSearchUnmount = this.handleSearchUnmount.bind(this);
     }
 
     handleKeyPress(event) {
@@ -37,6 +38,10 @@ class App extends React.Component {
         } else if (event.keyCode !== 13) {
             this.setState({ loadSearch: true, showHelp: false });
         }
+    }
+
+    handleSearchUnmount() {
+        return this.setState({ loadSearch: false });
     }
 
     componentDidMount() {
@@ -54,7 +59,7 @@ class App extends React.Component {
             <React.Fragment>
                 {!loadSearch
                     ? !showHelp && <Time />
-                    : !showHelp && <Search />
+                    : !showHelp && <Search searchUnmount={this.handleSearchUnmount} />
                 }
                 {showHelp && <Help />}
 
