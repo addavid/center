@@ -64,7 +64,7 @@ const config = {
             category: 'Media & Content',
             name: 'Wikipedia',
             website: 'https://en.wikipedia.org',
-            searchQuery: '/wiki/',
+            searchQuery: '/w/index.php?cirrusUserTesting=control&search=',
             color: 'linear-gradient(135deg, rgba(121,121,116,0.7581233176864496) 35%, rgba(213,218,218,1) 100%)'
         },
         l: {
