@@ -3,8 +3,8 @@ Center
 Center is a simple  React startpage for daily use.\
 The project is based on [vkhitrin\'s](https://github.com/vkhitrin) [hub](https://github.com/vkhitrin/hub/) (a modified fork of [tilde](https://github.com/cadejscroggins/tilde)).
 
-![master](https://travis-ci.org/addavid/center.svg?branch=master) (master)\
-![dev]( https://travis-ci.org/addavid/center.svg?branch=dev) (dev)
+[![Build Status](https://travis-ci.org/addavid/center.svg?branch=master)](https://travis-ci.org/addavid/center) (master)\
+[![Build Status](https://travis-ci.org/addavid/center.svg?branch=dev)](https://travis-ci.org/addavid/center) (dev)
 
 
 
