@@ -1,3 +1,16 @@
 language: node_js
 node_js:
     - 12
+
+stages:
+    - test
+    - build
+
+jobs:
+    include:
+        - stage: test
+          name: "Installing deps..."
+          script: npm i && npm test
+        - stage: build
+          name: "Webpack build..."
+          script: npm run build
