@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Adi Davidovich",
   "license": "ISC",
@@ -15,6 +15,13 @@
       "@babel/preset-env",
       "@babel/preset-react"
     ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.css$": "<rootDir>/tests/styleMock.js"
+    },
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "setupFiles": ["./tests/setupTests.js"]
   },
   "dependencies": {
     "@babel/core": "^7.8.7",
@@ -37,6 +44,11 @@
     "webpack-dev-server": "^3.10.3"
   },
   "devDependencies": {
+    "babel-jest": "^26.0.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
+    "jest": "^26.0.1",
     "webpack-bundle-analyzer": "^3.6.1"
   }
 }

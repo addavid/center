@@ -1,7 +1,7 @@
 /**
  * SEARCH COMPONENT
  * @author Adi Davidovich
- * LAST CHANGE: 03/04/2020
+ * LAST CHANGE: 14/05/2020
  */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -23,14 +23,14 @@ export default class Search extends React.Component {
         this.shouldSearch = this.shouldSearch.bind(this);
     }
 
-    handleChange(e) {
+    handleChange(event) {
         event.preventDefault();
 
-        if (e.target.value === '') {
+        if (event.target.value === '') {
             return this.props.searchUnmount();
         }
         
-        this.setState({ currentInput: e.target.value });
+        this.setState({ currentInput: event.target.value });
     }
 
     handleSubmit(event) {
@@ -161,6 +161,6 @@ export default class Search extends React.Component {
         );
     }
 }
-Search.PropTypes = {
+Search.propTypes = {
     searchUnmount: PropTypes.func.isRequired
 };
