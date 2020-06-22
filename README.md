@@ -27,4 +27,4 @@ Usage
 
 TODO
 ----
-1. Add a dark mode feature that'll toggle by time (day/night).
+1. Add a suggestion system for search queries.

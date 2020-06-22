@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #f3f3f3;
+    background-color: var(--bgColor);
 }
 
 .overlay {
@@ -68,6 +68,7 @@ a:focus {
     letter-spacing: .05em;
     cursor: pointer;
     text-align: center;
+    color: var(--foreground);
 }
 
 #date {
@@ -175,7 +176,8 @@ body.suggestions #search-suggestions {
     margin: 0 0 2rem;
     font-size: .7em;
     letter-spacing: .2em;
-    text-transform: uppercase
+    text-transform: uppercase;
+    color: var(--foreground);
 }
 
 .command a {
@@ -185,6 +187,7 @@ body.suggestions #search-suggestions {
     font-size: .9em;
     line-height: 2em;
     text-decoration: none;
+    color: var(--foreground);
 }
 
 .command:last-of-type a {
@@ -358,6 +361,7 @@ span.highlight p span {
     #search-input,
     #search-input:focus {
         font-size: 3em;
+        color: #222;
     }
 }
 
