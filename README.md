@@ -6,9 +6,6 @@ The project is based on [vkhitrin\'s](https://github.com/vkhitrin) [hub](https:/
 [![Build Status](https://travis-ci.org/addavid/center.svg?branch=master)](https://travis-ci.org/addavid/center) (master)\
 [![Build Status](https://travis-ci.org/addavid/center.svg?branch=dev)](https://travis-ci.org/addavid/center) (dev)
 
-
-
-
 Requirements for Build
 ----------------------
 You should have NodeJS (10+) installed.\
@@ -24,6 +21,12 @@ Usage
 4. Test your changes with `npm start` (a simple webserver will be executed).
 5. Once satisfied, build using `npm run build`.
 6. The bundled files will be in the `dist` directory.
+
+
+As a Container
+--------------
+You could build the container image by yourself using the repo's `Dockerfile`.\
+Otherwise, you could use `docker image pull adidav/center` for the latest [container image](https://hub.docker.com/r/adidav/center).
 
 TODO
 ----
